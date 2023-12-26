@@ -15,12 +15,15 @@ export default function AppMentor() {
         {person.name}는 {person.title}
       </h1>
       <p>
-        {person.name}의 멘토는 {person.name.bob} ({person.mentor.title})
+        {person.name}의 멘토는 {person.mentor.name} ( {person.mentor.title} )
       </p>
       <button
         onClick={() => {
           const name = prompt("What's your mentor's name?");
-          setPerson((prev) => ({ ...prev, mentor: { ...prev, name: name } }));
+          setPerson((prev) => ({
+            ...prev,
+            mentor: { ...prev.mentor, name }, // key와 value값이 같을 때는 생략하고 하나만 작성 가능
+          }));
         }}
       >
         멘토 이름 바꾸기
@@ -28,7 +31,10 @@ export default function AppMentor() {
       <button
         onClick={() => {
           const title = prompt("What's your mentor's title?");
-          setPerson((prev) => ({ ...prev, mentor: { ...prev, title: title } }));
+          setPerson((prev) => ({
+            ...prev,
+            mentor: { ...prev.mentor, title },
+          }));
         }}
       >
         멘토 타이틀 바꾸기
