@@ -3,7 +3,7 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.orange {
+/* .orange {
   color: orange;
 }
 
@@ -87,4 +87,20 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
+} */
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: beige;
+}
+
+.pointer {
+  position: absolute;
+  background-color: crimson;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  left: -15px;
+  top: -15px;
 }
