@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useProducts from "../../hooks/use-products";
 
 export default function Products({ checked, handleChange }) {
-  const [products, setProducts] = useState([]);
+  const [loading, error, products] = useProducts({ saleOlny: checked });
 
-  useEffect(() => {
-    fetch(`data/${checked ? "sale_" : ""}products.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("success");
-        setProducts(data);
-      });
-    return () => {
-      console.log("clear");
-    };
-  }, [checked]);
+  if (loading) return <p>Loading...</p>;
+
+  if (error) return <p>{error}</p>;
 
   return (
     <>
